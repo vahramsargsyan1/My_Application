@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DB9501"
+    android:background="#fcbe7e "
     tools:context=".MainActivity2">
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#C05805"
+        android:backgroundTint="#046f87 "
         android:onClick="startnewactivty"
         android:text="Назад"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,9 +26,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="29dp"
-        android:text="Button"
+        android:backgroundTint="#916e62"
+        android:onClick="startnewactivty3"
+        android:text="день 1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:strokeWidth="2sp" />
 
     <Button
         android:id="@+id/button5"
@@ -36,9 +39,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="40dp"
-        android:text="Button"
+        android:backgroundTint="#916e62"
+        android:onClick="startnewactivty3"
+        android:text="день 2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:strokeWidth="2sp" />
 
     <Button
         android:id="@+id/button6"
@@ -46,19 +52,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="40dp"
-        android:text="Button"
+        android:backgroundTint="#916e62"
+        android:onClick="startnewactivty3"
+        android:text="день 3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:strokeWidth="2sp" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="40dp"
-        android:text="Button"
+        android:backgroundTint="#916e62"
+        android:onClick="startnewactivty3"
+        android:text="день 4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/button6"
+        app:strokeWidth="2sp" />
 
     <Button
         android:id="@+id/button8"
@@ -66,8 +78,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="40dp"
-        android:text="Button"
+        android:backgroundTint="#916e62"
+        android:onClick="startnewactivty3"
+        android:text="день 5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:strokeWidth="2sp" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="124dp"
+        android:backgroundTint="#916e62"
+        android:onClick="startnewactivty3"
+        android:text="день 6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:strokeWidth="2sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,20 +3,47 @@ package com.example.myapplication;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.BaseMenuPresenter;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText question1,question2,question3,question4,question5;
     Button statistic;
     Button exit;
+    String q1;
+    String q2;
+    String q3;
+    String q4;
+    String q5;
+    Button btnAdd;
+    Button btnRead;
+    Button btnClear;
+
+    Button btnLoad;
+    private SharedPreferences pref;
+    String savedText1;
+    String savedText2;
+    String savedText3;
+    String savedText4;
+    String savedText5;
+    DBHelper dbHelper;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,23 +55,101 @@ public class MainActivity extends AppCompatActivity {
         question5 = findViewById(R.id.editTextText8);
         statistic = findViewById(R.id.button);
         exit = findViewById(R.id.button3);
-        String q1 = question1.getText().toString();
-        String q2 = question2.getText().toString();
-        String q3 = question3.getText().toString();
-        String q4 = question4.getText().toString();
-        String q5 = question5.getText().toString();
+        q1 = question1.getText().toString();
+        q2 = question2.getText().toString();
+        q3 = question3.getText().toString();
+        q4 = question4.getText().toString();
+        q5 = question5.getText().toString();
+        pref = getSharedPreferences("Table",MODE_PRIVATE);
+        savedText1 = pref.getString("a", "null");
+        savedText2 = pref.getString("b", "null");
+        savedText3 = pref.getString("c", "null");
+        savedText4 = pref.getString("d", "null");
+        savedText5 = pref.getString("e", "null");
+
+        dbHelper = new DBHelper(this);
+
+        btnAdd = (Button)findViewById(R.id.btnadd);
+        btnAdd.setOnClickListener(this);
+        btnRead = (Button)findViewById(R.id.btnread);
+        btnRead.setOnClickListener(this);
+        btnClear = (Button)findViewById(R.id.btnclear);
+        btnClear.setOnClickListener(this);
         exit.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 showalert("хотте ли вы выйти из проложения?");
-                String q1 = question1.getText().toString();
-                String q2 = question2.getText().toString();
-                String q3 = question3.getText().toString();
-                String q4 = question4.getText().toString();
-                String q5 = question5.getText().toString();
+
             }
+
         });
     }
+    @Override
+    public void onClick(View v) {
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        q1 = question1.getText().toString();
+        ContentValues contentValues = new ContentValues();
+        if(v.getId()==R.id.btnadd){
+                    contentValues.put(DBHelper.KEY_NAME, q1);
+                    database.insert(DBHelper.TABLE_ANSWER, null ,contentValues);
+        }
+        else if(v.getId()==R.id.btnread){
+            Cursor cursor = database.query(DBHelper.TABLE_ANSWER,null,null,null,null,null,null);
+            if (cursor.moveToFirst()){
+                int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
+                int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
+                do{
+                    Log.d("mLog", "ID = "+ cursor.getInt(idIndex)+", name"+cursor.getString(nameIndex));
+                }
+                while (cursor.moveToNext());
+            }
+            else Log.d("mLog","0 rows");
+            cursor.close();
+        }
+        else if(v.getId()==R.id.btnclear){
+            database.delete(DBHelper.TABLE_ANSWER,null,null);
+        }
+    }
+
+    public void onClickadd(View view) {
+                saveText();
+    }
+    public void onClickload(View view) {
+                loadText();
+    }
+    void saveText() {
+        pref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = pref.edit();
+        ed.putString("a", question1.getText().toString());
+        ed.putString("b", question2.getText().toString());
+        ed.putString("c", question3.getText().toString());
+        ed.putString("d", question4.getText().toString());
+        ed.putString("e", question5.getText().toString());
+        ed.apply();
+        Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
+
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+    }
+
+    void loadText() {
+        pref = getPreferences(MODE_PRIVATE);
+        savedText1 = pref.getString("a", "null");
+        savedText2 = pref.getString("b", "null");
+        savedText3 = pref.getString("c", "null");
+        savedText4 = pref.getString("d", "null");
+        savedText5 = pref.getString("e", "null");
+        question1.setText(savedText1);
+        question2.setText(savedText2);
+        question3.setText(savedText3);
+        question4.setText(savedText4);
+        question5.setText(savedText5);
+        Toast.makeText(this, "Text loaded", Toast.LENGTH_SHORT).show();
+    }
+
     private void showInfo(String text){
         Toast.makeText(this,text,Toast.LENGTH_LONG).show();
     }
@@ -69,12 +174,12 @@ public class MainActivity extends AppCompatActivity {
         exitdialog.show();
     }
     public  void startnewactivty(View v){ Intent intent = new Intent(this, MainActivity2.class);
-        String q1 = question1.getText().toString();
-        String q2 = question2.getText().toString();
-        String q3 = question3.getText().toString();
-        String q4 = question4.getText().toString();
-        String q5 = question5.getText().toString();
         startActivity(intent);
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
     }
 
 }
