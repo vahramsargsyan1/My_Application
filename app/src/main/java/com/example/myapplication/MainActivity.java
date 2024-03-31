@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnClear;
 
     Button btnLoad;
-    private SharedPreferences pref;
+    public SharedPreferences pref;
     String savedText1;
     String savedText2;
     String savedText3;
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRead.setOnClickListener(this);
         btnClear = (Button)findViewById(R.id.btnclear);
         btnClear.setOnClickListener(this);
+        loadText();
         exit.setOnClickListener(new View.OnClickListener() {
 
 
@@ -93,8 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         q1 = question1.getText().toString();
         ContentValues contentValues = new ContentValues();
         if(v.getId()==R.id.btnadd){
-                    contentValues.put(DBHelper.KEY_NAME, q1);
-                    database.insert(DBHelper.TABLE_ANSWER, null ,contentValues);
+            contentValues.put(DBHelper.KEY_NAME, q1);
+            database.insert(DBHelper.TABLE_ANSWER, null ,contentValues);
         }
         else if(v.getId()==R.id.btnread){
             Cursor cursor = database.query(DBHelper.TABLE_ANSWER,null,null,null,null,null,null);
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
                 int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
                 do{
-                    Log.d("mLog", "ID = "+ cursor.getInt(idIndex)+", name"+cursor.getString(nameIndex));
+                    Log.d("mLog", "ID = "+ cursor.getInt(idIndex)+", name "+cursor.getString(nameIndex));
                 }
                 while (cursor.moveToNext());
             }

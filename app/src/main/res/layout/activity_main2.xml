@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fcbe7e "
+    android:background="#66a5ad"
     tools:context=".MainActivity2">
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#046f87 "
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#07575b"
         android:onClick="startnewactivty"
         android:text="Назад"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,12 +21,25 @@
         app:strokeWidth="2sp" />
 
     <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#07575b"
+        android:onClick="startnewactivty3"
+        android:text="день 5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:strokeWidth="2sp" />
+
+    <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="29dp"
-        android:backgroundTint="#916e62"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="56dp"
+        android:backgroundTint="#07575b"
         android:onClick="startnewactivty3"
         android:text="день 1"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +50,9 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#916e62"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#07575b"
         android:onClick="startnewactivty3"
         android:text="день 2"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,9 +63,9 @@
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#916e62"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#07575b"
         android:onClick="startnewactivty3"
         android:text="день 3"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,9 +76,9 @@
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#916e62"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#07575b"
         android:onClick="startnewactivty3"
         android:text="день 4"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,29 +86,25 @@
         app:strokeWidth="2sp" />
 
     <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#916e62"
-        android:onClick="startnewactivty3"
-        android:text="день 5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
-        app:strokeWidth="2sp" />
-
-    <Button
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="124dp"
-        android:backgroundTint="#916e62"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#07575b"
         android:onClick="startnewactivty3"
         android:text="день 6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/button8"
         app:strokeWidth="2sp" />
+
+    <Spinner
+        android:id="@+id/spinnerFilter"
+        android:layout_width="184dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
