@@ -4,25 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#66a5ad"
-    tools:context=".MainActivity">
+    android:background="@drawable/phottto"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="122dp"
+    tools:layout_editor_absoluteY="-8dp">
 
-
-    <Button
-        android:id="@+id/btnadd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="4dp"
-        android:text="add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnclear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="4dp"
         android:text="clear"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,16 +24,26 @@
         android:id="@+id/btnread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="4dp"
         android:text="read"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnadd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="4dp"
+        android:text="add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editTextText4"
-        android:layout_width="209dp"
-        android:layout_height="66dp"
+        android:layout_width="444dp"
+        android:layout_height="65dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="172dp"
         android:allowUndo="false"
@@ -49,57 +51,69 @@
         android:ems="10"
         android:hint="2"
         android:inputType="text"
+        android:shadowColor="#FFFFFF"
         android:singleLine="false"
         android:text=""
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextText5"
-        android:layout_width="209dp"
-        android:layout_height="66dp"
+        android:layout_width="441dp"
+        android:layout_height="75dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="60dp"
         android:backgroundTint="#000000"
         android:ems="10"
         android:hint="3"
         android:inputType="text"
+        android:shadowColor="#FFFFFF"
         android:text=""
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
 
     <EditText
         android:id="@+id/editTextText6"
-        android:layout_width="209dp"
-        android:layout_height="66dp"
+        android:layout_width="449dp"
+        android:layout_height="72dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="60dp"
         android:backgroundTint="#000000"
         android:ems="10"
         android:hint="4"
         android:inputType="text"
+        android:shadowColor="#FFFFFF"
         android:text=""
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="209dp"
-        android:layout_height="66dp"
+        android:layout_width="446dp"
+        android:layout_height="73dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="60dp"
         android:backgroundTint="#000000"
         android:ems="10"
         android:hint="5"
         android:inputType="text"
+        android:shadowColor="#FFFFFF"
         android:text=""
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText6" />
 
     <EditText
         android:id="@+id/editTextText8"
-        android:layout_width="209dp"
-        android:layout_height="66dp"
+        android:layout_width="441dp"
+        android:layout_height="64dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="60dp"
         android:backgroundTint="#000000"
@@ -107,16 +121,19 @@
         android:hint="6"
         android:inputType="text"
         android:text=""
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="178dp"
-        android:layout_height="65dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="143dp"
+        android:layout_height="56dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-        android:backgroundTint="#07575b"
+        android:backgroundTint="#db9501"
         android:onClick="startnewactivty"
         android:text="@string/button_name"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,11 +143,12 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="90dp"
+        android:layout_height="52dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
-        android:backgroundTint="#07575b"
+        android:backgroundTint="#db9501"
         android:text="Выход"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -139,13 +157,14 @@
 
     <Button
         android:id="@+id/showText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="692dp"
-        android:layout_marginEnd="4dp"
-        android:backgroundTint="#edae01"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="129dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="104dp"
+        android:backgroundTint="#db9501"
         android:onClick="onClickadd"
-        android:text="save"
+        android:text="Сохранить"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeWidth="2sp" />
@@ -157,6 +176,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="156dp"
         android:text="Вас беспокоит одиночество?"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -167,6 +187,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="244dp"
         android:text="Если бы средняя продолжительность жизни человека составляла 40 лет, как бы вы начали жить по-другому уже сегодня?"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -178,6 +199,7 @@
         android:layout_marginTop="388dp"
         android:text="Какое значение будет иметь сегодняшний день через пять лет?
 "
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -188,6 +210,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="528dp"
         android:text="Чему жизнь научила вас сегодня?"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -198,6 +221,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="656dp"
         android:text="Что ты не доделал и теперь жалеешь?"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -208,6 +232,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="80dp"
         android:text="хороший ли был этот день?"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -219,6 +244,7 @@
         android:layout_marginTop="112dp"
         android:backgroundTint="#edae01"
         android:text=" 1 да"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
