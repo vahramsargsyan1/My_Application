@@ -1,10 +1,10 @@
 package com.example.myapplication;
 
-import androidx.activity.result.contract.ActivityResultContracts;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.BaseMenuPresenter;
-
+import androidx.activity.result.contract.ActivityResultContracts;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText question1,question2,question3,question4,question5;
@@ -42,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String savedText3;
     String savedText4;
     String savedText5;
-    DBHelper dbHelper;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         savedText4 = pref.getString("d", "null");
         savedText5 = pref.getString("e", "null");
 
-        dbHelper = new DBHelper(this);
-
         btnAdd = (Button)findViewById(R.id.btnadd);
         btnAdd.setOnClickListener(this);
         btnRead = (Button)findViewById(R.id.btnread);
@@ -86,34 +85,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
 
+
         });
     }
     @Override
     public void onClick(View v) {
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
-        q1 = question1.getText().toString();
-        ContentValues contentValues = new ContentValues();
-        if(v.getId()==R.id.btnadd){
-            contentValues.put(DBHelper.KEY_NAME, q1);
-            database.insert(DBHelper.TABLE_ANSWER, null ,contentValues);
-        }
-        else if(v.getId()==R.id.btnread){
-            Cursor cursor = database.query(DBHelper.TABLE_ANSWER,null,null,null,null,null,null);
-            if (cursor.moveToFirst()){
-                int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
-                int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
-                do{
-                    Log.d("mLog", "ID = "+ cursor.getInt(idIndex)+", name "+cursor.getString(nameIndex));
-                }
-                while (cursor.moveToNext());
-            }
-            else Log.d("mLog","0 rows");
-            cursor.close();
-        }
-        else if(v.getId()==R.id.btnclear){
-            database.delete(DBHelper.TABLE_ANSWER,null,null);
-        }
+
     }
+
 
     public void onClickadd(View view) {
                 saveText();
@@ -132,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ed.apply();
         Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
 
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
     }
 
@@ -182,5 +160,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
-
 }
