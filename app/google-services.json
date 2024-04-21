@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "779531394659",
+    "project_id": "analysing-diary",
+    "storage_bucket": "analysing-diary.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779531394659:android:627b4c141f14fd07382256",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdQa7ESBydBlsk9hXUrl6OvXh2scuSEL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

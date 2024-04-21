@@ -3,23 +3,16 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.BaseMenuPresenter;
-import androidx.activity.result.contract.ActivityResultContracts;
+
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -75,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnClear = (Button)findViewById(R.id.btnclear);
         btnClear.setOnClickListener(this);
         loadText();
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        }
         exit.setOnClickListener(new View.OnClickListener() {
 
 
